@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,82 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PMh-qr-0x9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dEs-mf-Gsu"/>
+                                </connections>
+                            </mapView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-ea-eCi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ewT-ic-wdE">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W1-ev-EOw">
+                                            <rect key="frame" x="0.0" y="8" width="163" height="232"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="163" id="CrP-5w-lHN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                            <color key="textColor" red="0.14509804546833038" green="0.7725490927696228" blue="0.90588241815567017" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Compass Data ..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-T8-ehB">
+                                            <rect key="frame" x="171" y="8" width="421" height="162"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compass Loading ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEt-iM-v5G">
+                                            <rect key="frame" x="171" y="211" width="421" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="mEt-iM-v5G" secondAttribute="trailing" constant="8" id="0d5-FX-Df7"/>
+                                        <constraint firstItem="0W1-ev-EOw" firstAttribute="leading" secondItem="ewT-ic-wdE" secondAttribute="leading" id="GSJ-hu-bSL"/>
+                                        <constraint firstItem="0W1-ev-EOw" firstAttribute="top" secondItem="ewT-ic-wdE" secondAttribute="topMargin" id="V9C-Ch-AOn"/>
+                                        <constraint firstItem="mEt-iM-v5G" firstAttribute="top" secondItem="dbZ-T8-ehB" secondAttribute="bottom" constant="41" id="Xne-8j-f4a"/>
+                                        <constraint firstItem="dbZ-T8-ehB" firstAttribute="trailing" secondItem="ewT-ic-wdE" secondAttribute="trailingMargin" id="Zd1-Ch-DAb"/>
+                                        <constraint firstItem="mEt-iM-v5G" firstAttribute="leading" secondItem="0W1-ev-EOw" secondAttribute="trailing" constant="8" id="azd-KF-OhN"/>
+                                        <constraint firstAttribute="bottom" secondItem="dbZ-T8-ehB" secondAttribute="bottom" constant="70" id="eMa-rb-qgC"/>
+                                        <constraint firstItem="dbZ-T8-ehB" firstAttribute="leading" secondItem="0W1-ev-EOw" secondAttribute="trailing" constant="8" symbolic="YES" id="nMa-0V-1Ed"/>
+                                        <constraint firstItem="dbZ-T8-ehB" firstAttribute="top" secondItem="0W1-ev-EOw" secondAttribute="top" id="pb9-7m-WGN"/>
+                                        <constraint firstAttribute="bottom" secondItem="0W1-ev-EOw" secondAttribute="bottom" id="r9y-qm-KQj"/>
+                                        <constraint firstAttribute="bottom" secondItem="mEt-iM-v5G" secondAttribute="bottom" constant="8" id="uOY-qt-QVY"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="wcV-p2-wRp"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PMh-qr-0x9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1Xj-Qc-IaG"/>
+                            <constraint firstItem="J3G-ea-eCi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Se-Rr-axn"/>
+                            <constraint firstItem="PMh-qr-0x9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="59h-P4-uz0"/>
+                            <constraint firstAttribute="trailing" secondItem="J3G-ea-eCi" secondAttribute="trailing" id="Vyh-6q-Dvx"/>
+                            <constraint firstItem="J3G-ea-eCi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="d0v-Fu-1lx"/>
+                            <constraint firstAttribute="trailing" secondItem="PMh-qr-0x9" secondAttribute="trailing" id="jm7-CT-RYy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PMh-qr-0x9" secondAttribute="bottom" id="wUx-g2-pKs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="compassLabel" destination="dbZ-T8-ehB" id="m8t-1C-ZRT"/>
+                        <outlet property="headingLabel" destination="mEt-iM-v5G" id="iN9-HF-KZN"/>
+                        <outlet property="locationLabel" destination="0W1-ev-EOw" id="rcf-xc-Wz0"/>
+                        <outlet property="map" destination="PMh-qr-0x9" id="ByG-SF-mhr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="297"/>
         </scene>
     </scenes>
 </document>
